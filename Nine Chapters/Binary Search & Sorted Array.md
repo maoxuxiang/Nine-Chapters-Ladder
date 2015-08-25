@@ -1,16 +1,17 @@
 
-- [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
-- [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
-- [Recover Rotated Sorted Array](http://www.lintcode.com/en/problem/recover-rotated-sorted-array/)
-- [Binary Search](http://www.lintcode.com/en/problem/binary-search/)
-- [Find Peak Element](https://leetcode.com/problems/find-peak-element/)
-- [First Bad Version](http://www.lintcode.com/en/problem/first-bad-version/)
-- [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-- [Search for a Range](https://leetcode.com/problems/search-for-a-range/)
-- [Median of two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+- [Merge Sorted Array](#merge-sorted-array)
+- [Search Insert Position](#search-insert-position)
+- [Recover Rotated Sorted Array](#recover-rotated-sorted-array)
+- [Binary Search](#binary-search)
+- [Find Peak Element](#find-peak-element)
+- [First Bad Version](#first-bad-version)
+- [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
+- [Search for a Range](#search-for-a-range)
+- [Median of two Sorted Arrays](#median-of-two-sorted-arrays)
 
 <hr />
-## [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+## Merge Sorted Array
+https://leetcode.com/problems/merge-sorted-array/
 
 ``` java
 public class Solution {
@@ -30,12 +31,15 @@ public class Solution {
 ```
 
 <hr />
-## [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+## Search Insert Position
+https://leetcode.com/problems/search-insert-position/
 
 思路：
+
 二分查找，注意边界条件
-1. 循环跳出条件：low <= high
-2. 退出条件：mid / mid + 1
+
+1. 循环跳出条件：`low <= high`
+2. 退出条件：`mid / mid + 1`
 
 ```java
 public class Solution {
@@ -65,7 +69,8 @@ public class Solution {
 ```
 
 <hr />
-## [Recover Rotated Sorted Array](http://www.lintcode.com/en/problem/recover-rotated-sorted-array/)
+## Recover Rotated Sorted Array
+http://www.lintcode.com/en/problem/recover-rotated-sorted-array/
 
 ```java
 public class Solution {
@@ -94,7 +99,8 @@ public class Solution {
 ```
 
 <hr />
-## [Binary Search](http://www.lintcode.com/en/problem/binary-search/)
+## Binary Search
+http://www.lintcode.com/en/problem/binary-search/
 
 ``` java
 class Solution {
@@ -131,14 +137,19 @@ class Solution {
 ```
 
 <hr />
-## [Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+## Find Peak Element
+https://leetcode.com/problems/find-peak-element/
 
 思路：
+
 二分查找
-循环结束条件：low == high
-始终拿mid和mid+1比较：
-若升序(nums[mid] < nums[mid + 1])，则峰值在mid+1右侧，low = mid + 1
-若降序(nums[mid] >= nums[mid + 1]), 则峰值在mid左侧，high = mid
+
+循环结束条件：`low == high`
+始终拿`mid`和`mid+1`比较：
+
+若升序(`nums[mid] < nums[mid + 1]`)，则峰值在`mid+1`右侧，`low = mid + 1`
+
+若降序(`nums[mid] >= nums[mid + 1]`), 则峰值在mid左侧，`high = mid`
 
 ``` java
 public class Solution {
@@ -161,14 +172,15 @@ public class Solution {
 ```
 
 <hr />
-## [First Bad Version](http://www.lintcode.com/en/problem/first-bad-version/)
+## First Bad Version
+http://www.lintcode.com/en/problem/first-bad-version/
 
 ``` java
 /**
  * public class VersionControl {
  *     public static boolean isBadVersion(int k);
  * }
- * you can use VersionControl.isBadVersion(k) to judge whether 
+ * you can use VersionControl.isBadVersion(k) to judge whether
  * the kth code version is bad or not.
 */
 class Solution {
@@ -195,9 +207,11 @@ class Solution {
 ```
 
 <hr />
-## [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+## Search in Rotated Sorted Array
+https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 思路：
+
 参考[水中的鱼](http://fisherlei.blogspot.com/2013/01/leetcode-search-in-rotated-sorted-array.html)
 ![](http://3.bp.blogspot.com/-ovV6zYeEdZg/U_ke6coEoAI/AAAAAAAAIc4/lmb1A9FsjgQ/s1600/Picture123.png)
 
@@ -230,11 +244,15 @@ public class Solution {
 ```
 
 <hr />
-## [Search for a Range](https://leetcode.com/problems/search-for-a-range/)
+## Search for a Range
+https://leetcode.com/problems/search-for-a-range/
 
 思路：
+
 二分查找位置
+
 向左走找到最左
+
 向右走找到最右
 
 ``` java
@@ -278,7 +296,8 @@ public class Solution {
 ```
 
 <hr />
-## [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+## Median of Two Sorted Arrays
+https://leetcode.com/problems/median-of-two-sorted-arrays/
 
 ``` java
 ```

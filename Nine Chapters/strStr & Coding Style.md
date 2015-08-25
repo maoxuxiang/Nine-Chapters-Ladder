@@ -1,14 +1,15 @@
-    
-- [Implement strStr()](https://leetcode.com/problems/implement-strstr/)
-- [Subsets](https://leetcode.com/problems/subsets/)
-- [Subsets II](https://leetcode.com/problems/subsets-ii/)
-- [Permutations](https://leetcode.com/problems/permutations/)
-- [Permutations II](https://leetcode.com/problems/permutations-ii/)
-- [Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)
+
+- [Implement strStr()](#implement-strstr)
+- [Subsets](#subsets)
+- [Subsets II](#subsets-ii)
+- [Permutations](#permutations)
+- [Permutations II](#permutations-ii)
+- [Permutation Sequence](h#permutation-sequence)
 
 <!-- more -->
 <hr />
-## [Implement strStr()](https://leetcode.com/problems/implement-strstr/)
+## Implement strStr()
+https://leetcode.com/problems/implement-strstr/
 
 ``` java
 public class Solution {
@@ -33,7 +34,8 @@ public class Solution {
 ```
 
 <hr />
-## [Subsets](https://leetcode.com/problems/subsets/)
+## Subsets
+https://leetcode.com/problems/subsets/
 
 思路：
 
@@ -61,7 +63,8 @@ public class Solution {
 ```
 
 <hr />
-## [Subsets II](https://leetcode.com/problems/subsets-ii/)
+## Subsets II
+https://leetcode.com/problems/subsets-ii/
 
 ``` java
 public class Solution {
@@ -88,11 +91,12 @@ public class Solution {
 ```
 
 <hr />
-## [Permutations](https://leetcode.com/problems/permutations/)
+## Permutations
+https://leetcode.com/problems/permutations/
 
 思路：
 
-visited[]记录该位置是否访问过
+`visited[]`记录该位置是否访问过
 
 ``` java
 public class Solution {
@@ -131,7 +135,8 @@ public class Solution {
 ```
 
 <hr />
-## [Permutations II](https://leetcode.com/problems/permutations-ii/)
+## Permutations II
+https://leetcode.com/problems/permutations-ii/
 
 思路：
 
@@ -171,7 +176,8 @@ public class Solution {
 ```
 
 <hr />
-## [Permutation Sequence](https://leetcode.com/problems/permutation-sequence/)
+## Permutation Sequence
+https://leetcode.com/problems/permutation-sequence/
 
 思路一：
 
@@ -192,14 +198,15 @@ public class Solution {
 则有：
 
 > $$k_1 = k$$
-> 
 > $$a_1 = k_1 / (n-1)!$$
-
 > $$k_2 = k_1 \% (n-1)!$$
-
 > $$a_2 = k_2 / (n-2)!$$
-
 > $$\ldots$$
+> $$k_{n-1} = k_{n-2} \% 2!$$
+> $$a_{n-1} = k_{n-1} / 1!$$
+> $$k_{n} = k_{n-1} \% 1!$$
+> $$a_n = k_n / 0!$$
+
 
 ``` java
 public class Solution {
