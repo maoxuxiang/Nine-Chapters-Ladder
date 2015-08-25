@@ -7,6 +7,7 @@
 - [First Bad Version](http://www.lintcode.com/en/problem/first-bad-version/)
 - [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 - [Search for a Range](https://leetcode.com/problems/search-for-a-range/)
+- [Median of two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 <hr />
 ## [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
@@ -274,4 +275,10 @@ public class Solution {
         return -1;
     }
 }
+```
+
+<hr />
+## [Median of two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
+``` java
 ```
