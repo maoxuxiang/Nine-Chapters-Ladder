@@ -40,7 +40,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Wed Aug 26 2015 04:48:49 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="Wed Aug 26 2015 04:52:29 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -296,7 +296,7 @@
 <li><a href="#subsets-ii">Subsets II</a></li>
 <li><a href="#permutations">Permutations</a></li>
 <li><a href="#permutations-ii">Permutations II</a></li>
-<li><a href="h#permutation-sequence">Permutation Sequence</a></li>
+<li><a href="#permutation-sequence">Permutation Sequence</a></li>
 </ul>
 <!-- more -->
 <p><hr></p>
@@ -459,15 +459,15 @@
 <p>&#x4EE4;<script type="math/tex; ">k' = k \% (n-1)!</script>&#xFF0C;&#x8868;&#x793A;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x5728;&#x7B2C;<script type="math/tex; ">i</script>&#x7EC4;&#x7684;<script type="math/tex; ">k'</script>&#x4F4D;&#x7F6E;</p>
 <p>&#x5219;&#x6709;&#xFF1A;</p>
 <blockquote>
-<p><script type="math/tex; ">k_1 = k</script>
-<script type="math/tex; ">a_1 = k_1 / (n-1)!</script>
-<script type="math/tex; ">k_2 = k_1 \% (n-1)!</script>
-<script type="math/tex; ">a_2 = k_2 / (n-2)!</script>
-<script type="math/tex; ">\ldots</script>
-<script type="math/tex; ">k_{n-1} = k_{n-2} \% 2!</script>
-<script type="math/tex; ">a_{n-1} = k_{n-1} / 1!</script>
-<script type="math/tex; ">k_{n} = k_{n-1} \% 1!</script>
-<script type="math/tex; ">a_n = k_n / 0!</script></p>
+<p><script type="math/tex; ">k_1 = k</script></p>
+<p><script type="math/tex; ">a_1 = k_1 / (n-1)!</script></p>
+<p><script type="math/tex; ">k_2 = k_1 \% (n-1)!</script></p>
+<p><script type="math/tex; ">a_2 = k_2 / (n-2)!</script></p>
+<p><script type="math/tex; ">\ldots</script></p>
+<p><script type="math/tex; ">k_{n-1} = k_{n-2} \% 2!</script></p>
+<p><script type="math/tex; ">a_{n-1} = k_{n-1} / 1!</script></p>
+<p><script type="math/tex; ">k_{n} = k_{n-1} \% 1!</script></p>
+<p><script type="math/tex; ">a_n = k_n / 0!</script></p>
 </blockquote>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPermutation</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> k)</span> </span>{
