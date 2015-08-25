@@ -1,0 +1,16 @@
+{
+    "gitbook": ">=2.0.0",
+    
+    "plugins": [
+        "toggle-chapters",
+        "mathjax",
+        "duoshuo"
+    ],
+
+    "pluginsConfig": {
+        "duoshuo": {
+            "short_name": "jakezy",
+            "theme": "default"
+        }
+    }
+}

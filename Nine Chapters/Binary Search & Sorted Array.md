@@ -278,7 +278,7 @@ public class Solution {
 ```
 
 <hr />
-## [Median of two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+## [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ``` java
 ```
