@@ -16,4 +16,4 @@ _book
 *.pdf
 
 # git branch
-_gh-pages
+gh-pages
