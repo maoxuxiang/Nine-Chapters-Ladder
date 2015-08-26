@@ -1,3 +1,4 @@
+# Binary Search & Sorted Array
 
 - [Merge Sorted Array](#merge-sorted-array)
 - [Search Insert Position](#search-insert-position)
@@ -299,5 +300,61 @@ public class Solution {
 ## Median of Two Sorted Arrays
 https://leetcode.com/problems/median-of-two-sorted-arrays/
 
+思路：
+
+两个有序数组的中位数$$k = (m + n) / 2$$
+
+则可将题目转化为**求两个有序数组中第$$k$$大的数（Kth element in 2 sorted array）**
+
+比较$$A_{k/2}$$与$$B_{k/2}$$（若数组长度小于$$k/2$$，则记为无穷大）：
+
+若$$A_{k/2} < B_{k/2}$$，表示$$A_0,\ldots,A_{k/2}$$中的元素都在$$A$$和$$B$$合并之后的前$$k$$小的元素中，说明第$$k$$个数不在$$A_0,\ldots,A_{k/2}$$中，移动指针指向$$A_{k+1}$$，在$$A_{k+1},\ldots,A_m$$和$$B$$数组中**找第$$k-k/2$$大的数**（相当于删除了$$k/2$$个元素）
+
+否则，说明第$$k$$个数不在$$B_0,\ldots,B_{k/2}$$中，移动指针指向$$B_{k+1}$$，在$$B_{k+1},\ldots,B_n$$和$$A$$数组中**找第$$k-k/2$$大的数**（相当于删除了$$k/2$$个元素）
+
+递归退出条件：
+
+递归有三个参数，在A中查找的起始位置`start1`、在B中查找的起始位置`start2`、`k`
+
+则两个有序数组中找第`k`大的数的退出条件有三个：
+
+1. `start1 == m`
+返回`B`中第`k-1`大的数
+2. `start2 == n`
+返回`A`中第`k-1`大的数
+3. `k == 1`
+返回`A`、`B`相应位置较小的那个数
+
 ``` java
+public class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int length = nums1.length + nums2.length;
+        if (length % 2 == 0) {
+            return (findKth(nums1, 0, nums2, 0, length / 2) + findKth(nums1, 0, nums2, 0, length / 2 + 1)) / 2;
+        } else {
+            return findKth(nums1, 0, nums2, 0, length / 2 + 1);
+        }
+    }
+
+    private double findKth(int[] nums1, int start1, int[] nums2, int start2, int k) {
+        if (start1 >= nums1.length) {
+            return nums2[start2 + k - 1];
+        }
+        if (start2 >= nums2.length) {
+            return nums1[start1 + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[start1], nums2[start2]);
+        }
+
+        int key1 = start1 + k / 2 - 1 < nums1.length ? nums1[start1 + k / 2 - 1] : Integer.MAX_VALUE;
+        int key2 = start2 + k / 2 - 1 < nums2.length ? nums2[start2 + k / 2 - 1] : Integer.MAX_VALUE;
+
+        if (key1 < key2) {
+            return findKth(nums1, start1 + k / 2, nums2, start2, k - k / 2);
+        } else {
+            return findKth(nums1, start1, nums2, start2 + k / 2, k - k / 2);
+        }
+    }
+}
 ```

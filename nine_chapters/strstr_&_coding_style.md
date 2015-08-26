@@ -1,10 +1,11 @@
+# strStr & Coding Style
 
 - [Implement strStr()](#implement-strstr)
 - [Subsets](#subsets)
 - [Subsets II](#subsets-ii)
 - [Permutations](#permutations)
 - [Permutations II](#permutations-ii)
-- [Permutation Sequence](h#permutation-sequence)
+- [Permutation Sequence](#permutation-sequence)
 
 <!-- more -->
 <hr />
@@ -198,13 +199,21 @@ https://leetcode.com/problems/permutation-sequence/
 则有：
 
 > $$k_1 = k$$
+
 > $$a_1 = k_1 / (n-1)!$$
+
 > $$k_2 = k_1 \% (n-1)!$$
+
 > $$a_2 = k_2 / (n-2)!$$
+
 > $$\ldots$$
+
 > $$k_{n-1} = k_{n-2} \% 2!$$
+
 > $$a_{n-1} = k_{n-1} / 1!$$
+
 > $$k_{n} = k_{n-1} \% 1!$$
+
 > $$a_n = k_n / 0!$$
 
 
