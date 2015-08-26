@@ -40,7 +40,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.3" data-basepath=".." data-revision="Wed Aug 26 2015 13:16:42 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.3" data-basepath=".." data-revision="Wed Aug 26 2015 15:45:32 GMT+0800 (中国标准时间)">
     
 
 <div class="book-summary">
@@ -368,6 +368,164 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="binary-tree-divide-conquer">Binary Tree &amp; Divide Conquer</h1>
+<ul>
+<li><a href="#maximum-depth-of-binary-tree">Maximum Depth of Binary Tree</a></li>
+<li><a href="#insert-node-in-a-binary-search-tree">Insert Node in a Binary Search Tree</a></li>
+<li><a href="#binary-tree-preorder-traversal">Binary Tree Preorder Traversal</a></li>
+<li><a href="#validate-binary-search-tree">Validate Binary Search Tree</a></li>
+<li><a href="#binary-tree-maximum-path-sum">Binary Tree Maximum Path Sum</a></li>
+<li><a href="#balanced-binary-tree">Balanced Binary Tree</a></li>
+<li><a href="#lowest-common-ancestor-of-a-binary-tree">Lowest Common Ancestor of a Binary Tree</a></li>
+<li><a href="#binary-tree-level-order-traversal">Binary Tree Level Order Traversal</a></li>
+<li><a href="#search-range-in-binary-search-tree">Search Range in Binary Search Tree</a></li>
+<li><a href="#binary-search-tree-iterator">Binary Search Tree Iterator</a></li>
+</ul>
+<p><hr></p>
+<h2 id="maximum-depth-of-binary-tree">Maximum Depth of Binary Tree</h2>
+<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;</p>
+<p>&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x6C42;&#x53D6;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x7136;&#x540E;+1</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxDepth</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        <span class="hljs-keyword">return</span> root != <span class="hljs-keyword">null</span> ? Math.max(maxDepth(root.left), maxDepth(root.right)) + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="insert-node-in-a-binary-search-tree">Insert Node in a Binary Search Tree</h2>
+<p><a href="http://www.lintcode.com/en/problem/insert-node-in-a-binary-search-tree/" target="_blank">http://www.lintcode.com/en/problem/insert-node-in-a-binary-search-tree/</a></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">insertNode</span><span class="hljs-params">(TreeNode root, TreeNode node)</span> </span>{
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> node;
+        }
+        <span class="hljs-keyword">if</span> (root.val &gt; node.val) {
+            root.left = insertNode(root.left, node);
+        } <span class="hljs-keyword">else</span> {
+            root.right = insertNode(root.right, node);
+        }
+        <span class="hljs-keyword">return</span> root;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="binary-tree-preorder-traversal">Binary Tree Preorder Traversal</h2>
+<p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank">https://leetcode.com/problems/binary-tree-preorder-traversal/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;</p>
+<ol>
+<li><p>&#x9012;&#x5F52;</p>
+<p> &#x5148;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x6839;&#x5DE6;&#x53F3;</p>
+</li>
+<li><p>&#x975E;&#x9012;&#x5F52;</p>
+<p> &#x5229;&#x7528;&#x6808;&#xFF0C;&#x5148;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x5148;&#x8BBF;&#x95EE;&#x6839;&#x7ED3;&#x70B9;&#xFF0C;&#x5165;&#x6808;&#x65F6;&#x5148;&#x5165;&#x53F3;&#x7ED3;&#x70B9;&#xFF0C;&#x518D;&#x5165;&#x5DE6;&#x7ED3;&#x70B9;</p>
+</li>
+<li><p>&#x5206;&#x6CBB;</p>
+<p> &#x81EA;&#x5E95;&#x5411;&#x4E0A;</p>
+</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+
+    <span class="hljs-comment">// 1. Recursion</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        List&lt;Integer&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        reverse(root, result);
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reverse</span><span class="hljs-params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>{
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span>;
+        }
+        result.add(root.val);
+        reverse(root.left, result);
+        reverse(root.right, result);
+    }
+
+    <span class="hljs-comment">// 2. Non-Recursion</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        List&lt;Integer&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        Stack&lt;TreeNode&gt; stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
+
+        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> result;
+        }
+
+        stack.push(root);
+        <span class="hljs-keyword">while</span> (!stack.empty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) {
+                stack.push(node.right);
+            }
+            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) {
+                stack.push(node.left);
+            }
+        }
+
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-comment">// 3. Divide &amp; Conquer</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
+        List&lt;Integer&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        <span class="hljs-keyword">if</span>(root==<span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> result;
+        }
+
+        <span class="hljs-comment">// Divide</span>
+        List&lt;Integer&gt; left = preorderTraversal(root.left);
+        List&lt;Integer&gt; right = preorderTraversal(root.right);
+
+        <span class="hljs-comment">// Conquer</span>
+        result.add(root.val);
+        result.addAll(left);
+        result.addAll(right);
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="validate-binary-search-tree">Validate Binary Search Tree</h2>
+<p><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="binary-tree-maximum-path-sum">Binary Tree Maximum Path Sum</h2>
+<p><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">https://leetcode.com/problems/binary-tree-maximum-path-sum/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="balanced-binary-tree">Balanced Binary Tree</h2>
+<p><a href="https://leetcode.com/problems/balanced-binary-tree/" target="_blank">https://leetcode.com/problems/balanced-binary-tree/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="lowest-common-ancestor-of-a-binary-tree">Lowest Common Ancestor of a Binary Tree</h2>
+<p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="binary-tree-level-order-traversal">Binary Tree Level Order Traversal</h2>
+<p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">https://leetcode.com/problems/binary-tree-level-order-traversal/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="search-range-in-binary-search-tree">Search Range in Binary Search Tree</h2>
+<p><a href="http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/" target="_blank">http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="binary-search-tree-iterator">Binary Search Tree Iterator</h2>
+<p><a href="https://leetcode.com/problems/binary-search-tree-iterator/" target="_blank">https://leetcode.com/problems/binary-search-tree-iterator/</a></p>
+<pre><code class="lang-java">
+
+</code></pre>
 
                     
                     </section>
