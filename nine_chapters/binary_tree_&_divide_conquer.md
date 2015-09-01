@@ -132,8 +132,33 @@ public class Solution {
 ## Validate Binary Search Tree
 https://leetcode.com/problems/validate-binary-search-tree/
 
-``` java
+思路：
 
+对于每一个子树，限制它的最大，最小值，如果超过则返回false
+
+对于根节点，最大最小都不限制
+
+每一层节点，左子树最大值小于根，右子树最小值大于根
+
+``` java
+public class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY);
+    }
+
+    private boolean isValidBST(TreeNode root, double max, double min) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val > min && root.val < max
+                && isValidBST(root.left, root.val, min)
+                && isValidBST(root.right, max, root.val)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 ```
 
 
@@ -141,8 +166,37 @@ https://leetcode.com/problems/validate-binary-search-tree/
 ## Binary Tree Maximum Path Sum
 https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
-``` java
+思路：
 
+结点有可能是负值，所以一个以`root`为根的树的最大路径和`maxPathSum(root)`有以下四种情况
+
+1. `root.val`
+2. `root.val` + `getMax(left)`
+3. `root.val` + `getMax(right)`
+4. `root.val` + `getMax(left)` + `getMax(right)`（跨越左右子树）
+
+其中，`getMax(root)`是当前结点不包含第四种情况的最大路径和
+
+``` java
+public class Solution {
+    private int max = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+        getMax(root);
+        return max;
+    }
+
+    public int getMax(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = getMax(root.left);
+        int right = getMax(root.right);
+        int current = Math.max(root.val, Math.max(root.val + left, root.val + right));
+        max = Math.max(max, Math.max(current, root.val + left + right));
+        return current;
+    }
+}
 ```
 
 
@@ -150,8 +204,71 @@ https://leetcode.com/problems/binary-tree-maximum-path-sum/
 ## Balanced Binary Tree
 https://leetcode.com/problems/balanced-binary-tree/
 
-``` java
+思路一：
 
+自顶向下，有很多重复计算
+
+``` java
+public class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) {
+            return false;
+        }
+
+        return isBalanced(root.left) && isBalanced(root.right);
+    }
+
+    private int getDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(getDepth(root.left) + 1, getDepth(root.right) + 1);
+    }
+}
+```
+
+思路二：
+
+后序遍历，自底向上计算
+
+``` java
+public class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (getBalance(root) == -1) {
+            return false;
+        }
+        return true;
+    }
+
+    private int getBalance(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = getBalance(root.left);
+        if (left == -1) {
+            return -1;
+        }
+
+        int right = getBalance(root.right);
+        if (right == -1) {
+            return -1;
+        }
+
+        if (Math.abs(left - right) > 1) {
+            return -1;
+        }
+
+        return Math.max(left, right) + 1;
+    }
+}
 ```
 
 
@@ -160,7 +277,30 @@ https://leetcode.com/problems/balanced-binary-tree/
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
 ``` java
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // 如果有一个match，则说明当前结点就是要找的最低公共祖先
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
 
+        // 如果一个在左子树找到，一个在右子树找到，则说明root是最低公共祖先
+        if (left != null && right != null) {
+            return root;
+        }
+
+        // 其他情况
+        if (left != null) {
+            return left;
+        }
+        if (right != null) {
+            return right;
+        }
+        return null;
+    }
+}
 ```
 
 
