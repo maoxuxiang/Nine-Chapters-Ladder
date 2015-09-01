@@ -12,6 +12,7 @@
 - [Binary Search Tree Iterator](#binary-search-tree-iterator)
 
 optional
+
 - [Binary Tree Level Order Traversal II](#binary-search-tree-iterator)
 
 <hr />
