@@ -348,6 +348,12 @@ public class Solution {
 ## Search Range in Binary Search Tree
 http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/
 
+思路：
+
+如果当前值比`k1`大，在左子树找`k1<=x<=k2`
+
+如果当前值比`k2`小，在右子树找`k1<=x<=k2`
+
 ``` java
 public class Solution {
     private ArrayList<Integer> result;
