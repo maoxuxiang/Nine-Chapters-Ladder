@@ -161,7 +161,6 @@ public class Solution {
 }
 ```
 
-
 <hr />
 ## Binary Tree Maximum Path Sum
 https://leetcode.com/problems/binary-tree-maximum-path-sum/
@@ -198,7 +197,6 @@ public class Solution {
     }
 }
 ```
-
 
 <hr />
 ## Balanced Binary Tree
@@ -271,7 +269,6 @@ public class Solution {
 }
 ```
 
-
 <hr />
 ## Lowest Common Ancestor of a Binary Tree
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
@@ -302,7 +299,6 @@ public class Solution {
     }
 }
 ```
-
 
 <hr />
 ## Binary Tree Level Order Traversal
@@ -342,7 +338,6 @@ public class Solution {
     }
 }
 ```
-
 
 <hr />
 ## Search Range in Binary Search Tree
@@ -386,7 +381,6 @@ public class Solution {
 }
 
 ```
-
 
 <hr />
 ## Binary Search Tree Iterator
