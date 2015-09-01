@@ -135,8 +135,37 @@ https://leetcode.com/problems/minimum-path-sum/
 
 思路：
 
-``` java
+state: f[i][j]从起点到i,j的最小路径和
 
+function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
+
+initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]
+
+answer: f[m-1][n-1]
+
+``` java
+public class Solution {
+    public int minPathSum(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] answer = new int[m][n];
+
+        answer[0][0] = grid[0][0];
+        for (int i = 1; i < m; i++) {
+            answer[i][0] = answer[i - 1][0] + grid[i][0];
+        }
+        for (int j = 1; j < n; j++) {
+            answer[0][j] = answer[0][j - 1] + grid[0][j];
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                answer[i][j] = Math.min(answer[i - 1][j], answer[i][j - 1]) + grid[i][j];
+            }
+        }
+
+        return answer[m - 1][n - 1];
+    }
+}
 ```
 
 <hr />
