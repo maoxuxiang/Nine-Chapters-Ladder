@@ -193,7 +193,7 @@ public class Solution {
         }
 
         for (int i = n - 2; i >= 0; i--) {
-            for (int j = 0; j <= i; j++) {  // 第i层有i+1个结点（0层-1结点、1层-2结点）
+            for (int j = 0; j <= i; j++) {  // 第i层有i+1个结点（0层-1结点、1层-2结点...）
                 answer[j] = Math.min(answer[j], answer[j + 1]) + triangle.get(i).get(j);
             }
         }
