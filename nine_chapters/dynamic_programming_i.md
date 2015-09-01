@@ -174,8 +174,33 @@ https://leetcode.com/problems/triangle/
 
 思路：
 
-``` java
+state: 自底向上，f[i][j]表示从i,j到底层的最短路径和
 
+function: f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j] 
+
+initialize: f[n-1][j] = triangle[i-1][j]
+
+answer: f[0][0]
+
+``` java
+public class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        int[] answer = new int[n];
+
+        for (int j = 0; j < n; j++) {
+            answer[j] = triangle.get(n - 1).get(j);
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = 0; j <= i; j++) {  // 第i层有i个结点
+                answer[j] = Math.min(answer[j], answer[j + 1]) + triangle.get(i).get(j);
+            }
+        }
+
+        return answer[0];
+    }
+}
 ```
 
 <hr />
