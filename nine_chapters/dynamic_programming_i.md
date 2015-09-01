@@ -51,8 +51,48 @@ https://leetcode.com/problems/unique-paths-ii/
 
 思路：
 
-``` java
+state: f[i][j]从起点到i,j的路径数
 
+function: f[i][j] = f[i-1][j] + f[i][j-1]
+
+initialize: f[i][0] = 1, f[0][j] = 1
+
+answer: f[m-1][n-1]
+
+obstacleGrid[i][j] = 1表示路径不通，则grid[i][j] = 0
+
+``` java
+public class Solution {
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
+        int[][] array = new int[m][n];
+        
+        for (int i = 0; i < m; i++) {
+            if (obstacleGrid[i][0] == 1) {
+                break;
+            }
+            array[i][0] = 1;
+        }
+        for (int j = 0; j < n; j++) {
+            if (obstacleGrid[0][j] == 1) {
+                break;
+            }
+            array[0][j] = 1;
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (obstacleGrid[i][j] == 1) {
+                    array[i][j] = 0;
+                } else {
+                    array[i][j] = array[i - 1][j] + array[i][j - 1];
+                }
+            }
+        }
+        
+        return array[m - 1][n - 1];
+    }
+}
 ```
 
 <hr />
