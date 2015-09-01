@@ -440,7 +440,7 @@ public class Solution {
         if (root == null) {
             return result;
         }
-        
+
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
@@ -458,13 +458,11 @@ public class Solution {
             }
             result.add(res);
         }
-        
-        List<List<Integer>> resultReverse = new ArrayList<>();
-        for (int i = result.size() - 1; i >= 0; i--) {
-            resultReverse.add(result.get(i));
-        }
-        
-        return resultReverse;
+
+        Collections.reverse(result);
+
+        return result;
     }
 }
 ```
+
