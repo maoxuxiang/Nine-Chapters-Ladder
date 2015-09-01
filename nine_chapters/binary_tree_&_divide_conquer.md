@@ -349,6 +349,35 @@ public class Solution {
 http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/
 
 ``` java
+public class Solution {
+    private ArrayList<Integer> result;
+
+    /**
+     * @param root: The root of the binary search tree.
+     * @param k1 and k2: range k1 to k2.
+     * @return: Return all keys that k1<=key<=k2 in ascending order.
+     */
+    public ArrayList<Integer> searchRange(TreeNode root, int k1, int k2) {
+        result = new ArrayList<>();
+        search(root, k1, k2);
+        return result;
+    }
+
+    private void search(TreeNode root, int k1, int k2) {
+        if (root == null) {
+            return;
+        }
+        if (root.val > k1) {
+            search(root.left, k1, k2);
+        }
+        if (root.val >= k1 && root.val <= k2) {
+            result.add(root.val);
+        }
+        if (root.val < k2) {
+            search(root.right, k1, k2);
+        }
+    }
+}
 
 ```
 
