@@ -17,8 +17,32 @@ https://leetcode.com/problems/unique-paths/
 
 思路：
 
-``` java
+state: f[i][j]从起点到i,j的路径数
 
+function: f[i][j] = f[i-1][j] + f[i][j-1]
+
+initialize: f[0][0] = 0, f[i][0] = 1, f[0][j] = 1
+
+answer: f[n-1][m-1]
+
+``` java
+public class Solution {
+    public int uniquePaths(int m, int n) {
+        int[][] array = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            array[i][0] = 1;
+        }
+        for (int j = 0; j < n; j++) {
+            array[0][j] = 1;
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                array[i][j] = array[i - 1][j] + array[i][j - 1];
+            }
+        }
+        return array[m - 1][n - 1];
+    }
+}
 ```
 
 <hr />
