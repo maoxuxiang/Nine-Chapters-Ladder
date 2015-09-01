@@ -308,6 +308,10 @@ public class Solution {
 ## Binary Tree Level Order Traversal
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
+思路：
+
+层序遍历 --> 广度优先搜索 --> 循环、队列
+
 ``` java
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
