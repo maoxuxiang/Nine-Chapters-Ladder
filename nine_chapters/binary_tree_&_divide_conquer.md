@@ -429,5 +429,42 @@ public class BSTIterator {
  */
 ```
 
-
+<hr />
+## Binary Tree Level Order Traversal II
 https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
+
+``` java
+public class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            List<Integer> res = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.remove();
+                res.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            result.add(res);
+        }
+        
+        List<List<Integer>> resultReverse = new ArrayList<>();
+        for (int i = result.size() - 1; i >= 0; i--) {
+            resultReverse.add(result.get(i));
+        }
+        
+        return resultReverse;
+    }
+}
+```
