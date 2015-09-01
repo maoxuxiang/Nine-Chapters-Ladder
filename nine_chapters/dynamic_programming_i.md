@@ -101,8 +101,32 @@ https://leetcode.com/problems/climbing-stairs/
 
 思路：
 
-``` java
+state: f[n]从起点到n的方式数量
 
+function: f[n] = f[n-1] + f[n-2]
+
+initialize: f[0] = 1, f[1] = 1, f[2] = f[0] + f[1] = 2
+
+answer: f[n]
+
+``` java
+public class Solution {
+    public int climbStairs(int n) {
+        int first = 1;
+        int second = 1;
+        if (n <= 1) {
+            return second;
+        }
+        
+        int result = 0;
+        for (int i = 1; i < n; i++) {
+            result = first + second;
+            first = second;
+            second = result;
+        }
+        return result;
+    }
+}
 ```
 
 <hr />
