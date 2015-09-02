@@ -300,11 +300,11 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
 递归退出条件：  
 递归有三个参数，在A中查找的起始位置`start1`、在B中查找的起始位置`start2`、`k`  
 则两个有序数组中找第`k`大的数的退出条件有三个：  
-1. `start1 == m`
+1. `start1 == m`  
 返回`B`中第`k-1`大的数
-2. `start2 == n`
+2. `start2 == n`  
 返回`A`中第`k-1`大的数
-3. `k == 1`
+3. `k == 1`  
 返回`A`、`B`相应位置较小的那个数
 
 ``` java
