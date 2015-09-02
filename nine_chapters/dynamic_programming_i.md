@@ -15,14 +15,10 @@
 ## Unique Paths
 https://leetcode.com/problems/unique-paths/
 
-思路：
-
-state: f[i][j]从起点到i,j的路径数
-
-function: f[i][j] = f[i-1][j] + f[i][j-1]
-
-initialize: f[i][0] = 1, f[0][j] = 1
-
+思路：  
+state: f[i][j]从起点到i,j的路径数  
+function: f[i][j] = f[i-1][j] + f[i][j-1]  
+initialize: f[i][0] = 1, f[0][j] = 1  
 answer: f[m-1][n-1]
 
 ``` java
