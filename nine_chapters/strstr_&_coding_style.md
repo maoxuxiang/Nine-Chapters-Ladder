@@ -38,8 +38,7 @@ public class Solution {
 ## Subsets
 https://leetcode.com/problems/subsets/
 
-思路：
-
+思路：  
 递归构造
 
 ``` java
@@ -95,8 +94,7 @@ public class Solution {
 ## Permutations
 https://leetcode.com/problems/permutations/
 
-思路：
-
+思路：  
 `visited[]`记录该位置是否访问过
 
 ``` java
