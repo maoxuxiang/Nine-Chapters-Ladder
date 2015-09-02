@@ -214,18 +214,32 @@ public class Solution {
 ## Jump Game II
 https://leetcode.com/problems/jump-game-ii/
 
-思路：
-
-state: f[i][j]从起点到i,j的最小路径和
-
-function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
-
-initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]
-
-answer: f[m-1][n-1]
-
 ``` java
+public class Solution {
+    public int jump(int[] nums) {
+        if (nums == null || nums.length == 0)
+            return 0;
 
+        int lastReach = 0;
+        int reach = 0;
+        int step = 0;
+
+        for (int i = 0; i <= reach && i < nums.length; i++) {
+            //when last jump can not read current i, increase the step by 1
+            if (i > lastReach) {
+                step++;
+                lastReach = reach;
+            }
+            //update the maximal jump 
+            reach = Math.max(reach, nums[i] + i);
+        }
+
+        if (reach < nums.length - 1)
+            return 0;
+
+        return step;
+    }
+}
 ```
 
 <hr />
