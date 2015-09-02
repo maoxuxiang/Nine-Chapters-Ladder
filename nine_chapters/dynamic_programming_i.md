@@ -275,7 +275,11 @@ https://leetcode.com/problems/palindrome-partitioning-ii/
 ## Longest Increasing Subsequence
 http://www.lintcode.com/en/problem/longest-increasing-subsequence/
 
-思路：
+思路：  
+state: dp[i]表示以nums[i]结尾的LIS的最大长度, 0 < i < nums.length  
+function:    
+initialize:   
+answer: 
 
 ``` java
 
