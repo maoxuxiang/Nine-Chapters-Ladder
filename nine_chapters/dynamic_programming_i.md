@@ -49,16 +49,11 @@ public class Solution {
 ## Unique Paths II
 https://leetcode.com/problems/unique-paths-ii/
 
-思路：
-
-state: f[i][j]从起点到i,j的路径数
-
-function: f[i][j] = f[i-1][j] + f[i][j-1]
-
-initialize: f[i][0] = 1, f[0][j] = 1
-
-answer: f[m-1][n-1]
-
+思路：  
+state: f[i][j]从起点到i,j的路径数  
+function: f[i][j] = f[i-1][j] + f[i][j-1]  
+initialize: f[i][0] = 1, f[0][j] = 1  
+answer: f[m-1][n-1]  
 obstacleGrid[i][j] = 1表示路径不通，则grid[i][j] = 0
 
 ``` java
@@ -99,14 +94,10 @@ public class Solution {
 ## Climbing Stairs
 https://leetcode.com/problems/climbing-stairs/
 
-思路：
-
-state: f[n]从起点到n的方式数量
-
-function: f[n] = f[n-1] + f[n-2]
-
-initialize: f[0] = 1, f[1] = 1, f[2] = f[0] + f[1] = 2
-
+思路：  
+state: f[n]从起点到n的方式数量  
+function: f[n] = f[n-1] + f[n-2]  
+initialize: f[0] = 1, f[1] = 1, f[2] = f[0] + f[1] = 2  
 answer: f[n]
 
 ``` java
