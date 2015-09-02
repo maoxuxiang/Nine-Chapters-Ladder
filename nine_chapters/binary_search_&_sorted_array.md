@@ -35,10 +35,8 @@ public class Solution {
 ## Search Insert Position
 https://leetcode.com/problems/search-insert-position/
 
-思路：
-
-二分查找，注意边界条件
-
+思路：  
+二分查找，注意边界条件  
 1. 循环跳出条件：`low <= high`
 2. 退出条件：`mid / mid + 1`
 
