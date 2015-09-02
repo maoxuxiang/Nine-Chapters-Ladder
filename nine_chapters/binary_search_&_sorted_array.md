@@ -139,15 +139,11 @@ class Solution {
 ## Find Peak Element
 https://leetcode.com/problems/find-peak-element/
 
-思路：
-
-二分查找
-
-循环结束条件：`low == high`
-始终拿`mid`和`mid+1`比较：
-
-若升序(`nums[mid] < nums[mid + 1]`)，则峰值在`mid+1`右侧，`low = mid + 1`
-
+思路：  
+二分查找  
+循环结束条件：`low == high`  
+始终拿`mid`和`mid+1`比较：  
+若升序(`nums[mid] < nums[mid + 1]`)，则峰值在`mid+1`右侧，`low = mid + 1`  
 若降序(`nums[mid] >= nums[mid + 1]`), 则峰值在mid左侧，`high = mid`
 
 ``` java
@@ -209,8 +205,7 @@ class Solution {
 ## Search in Rotated Sorted Array
 https://leetcode.com/problems/search-in-rotated-sorted-array/
 
-思路：
-
+思路：  
 参考[水中的鱼](http://fisherlei.blogspot.com/2013/01/leetcode-search-in-rotated-sorted-array.html)
 ![](http://3.bp.blogspot.com/-ovV6zYeEdZg/U_ke6coEoAI/AAAAAAAAIc4/lmb1A9FsjgQ/s1600/Picture123.png)
 
@@ -246,12 +241,9 @@ public class Solution {
 ## Search for a Range
 https://leetcode.com/problems/search-for-a-range/
 
-思路：
-
-二分查找位置
-
-向左走找到最左
-
+思路：  
+二分查找位置  
+向左走找到最左  
 向右走找到最右
 
 ``` java
@@ -298,16 +290,11 @@ public class Solution {
 ## Median of Two Sorted Arrays
 https://leetcode.com/problems/median-of-two-sorted-arrays/
 
-思路：
-
-两个有序数组的中位数$$k = (m + n) / 2$$
-
-则可将题目转化为**求两个有序数组中第$$k$$大的数（Kth element in 2 sorted array）**
-
-比较$$A_{k/2}$$与$$B_{k/2}$$（若数组长度小于$$k/2$$，则记为无穷大）：
-
-若$$A_{k/2} < B_{k/2}$$，表示$$A_0,\ldots,A_{k/2}$$中的元素都在$$A$$和$$B$$合并之后的前$$k$$小的元素中，说明第$$k$$个数不在$$A_0,\ldots,A_{k/2}$$中，移动指针指向$$A_{k+1}$$，在$$A_{k+1},\ldots,A_m$$和$$B$$数组中**找第$$k-k/2$$大的数**（相当于删除了$$k/2$$个元素）
-
+思路：  
+两个有序数组的中位数$$k = (m + n) / 2$$  
+则可将题目转化为**求两个有序数组中第$$k$$大的数（Kth element in 2 sorted array）**  
+比较$$A_{k/2}$$与$$B_{k/2}$$（若数组长度小于$$k/2$$，则记为无穷大）：  
+若$$A_{k/2} < B_{k/2}$$，表示$$A_0,\ldots,A_{k/2}$$中的元素都在$$A$$和$$B$$合并之后的前$$k$$小的元素中，说明第$$k$$个数不在$$A_0,\ldots,A_{k/2}$$中，移动指针指向$$A_{k+1}$$，在$$A_{k+1},\ldots,A_m$$和$$B$$数组中**找第$$k-k/2$$大的数**（相当于删除了$$k/2$$个元素）  
 否则，说明第$$k$$个数不在$$B_0,\ldots,B_{k/2}$$中，移动指针指向$$B_{k+1}$$，在$$B_{k+1},\ldots,B_n$$和$$A$$数组中**找第$$k-k/2$$大的数**（相当于删除了$$k/2$$个元素）
 
 递归退出条件：
