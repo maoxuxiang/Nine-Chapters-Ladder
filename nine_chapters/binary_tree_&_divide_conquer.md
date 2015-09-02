@@ -167,7 +167,8 @@ https://leetcode.com/problems/binary-tree-maximum-path-sum/
 1. `root.val`
 2. `root.val` + `getMax(left)`
 3. `root.val` + `getMax(right)`
-4. `root.val` + `getMax(left)` + `getMax(right)`（跨越左右子树）  
+4. `root.val` + `getMax(left)` + `getMax(right)`（跨越左右子树）
+
 其中，`getMax(root)`是当前结点不包含第四种情况的最大路径和
 
 ``` java
@@ -196,8 +197,7 @@ public class Solution {
 ## Balanced Binary Tree
 https://leetcode.com/problems/balanced-binary-tree/
 
-思路一：
-
+思路一：  
 自顶向下，有很多重复计算
 
 ``` java
@@ -223,8 +223,7 @@ public class Solution {
 }
 ```
 
-思路二：
-
+思路二：  
 后序遍历，自底向上计算
 
 ``` java
@@ -298,8 +297,7 @@ public class Solution {
 ## Binary Tree Level Order Traversal
 https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-思路：
-
+思路：  
 层序遍历 --> 广度优先搜索 --> 循环、队列
 
 ``` java
@@ -337,10 +335,8 @@ public class Solution {
 ## Search Range in Binary Search Tree
 http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/
 
-思路：
-
-如果当前值比`k1`大，在左子树找`k1<=x<=k2`
-
+思路：  
+如果当前值比`k1`大，在左子树找`k1<=x<=k2`  
 如果当前值比`k2`小，在右子树找`k1<=x<=k2`
 
 ``` java
