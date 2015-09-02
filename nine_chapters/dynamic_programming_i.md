@@ -250,10 +250,10 @@ public class Solution {
 https://leetcode.com/problems/word-break/
 
 思路：  
-state: possible[i]表示字符串s的[0,i]子串可以被segmented by dict, 0 < i < s.length  
-function: possible[i] = possible[j] && dict.contains(s.substr(j+1, i-j)), 0 < k < i  
+state: possible[i]表示字符串S的[0,i]子串可以被segmented by dict, 0 < i < S.length  
+function: possible[i] = possible[k] && dict.contains(s.substr(k+1, i-k)), 0 < k < i  
 initialize: possible[0] = true  
-answer: possible[s.length]
+answer: possible[S.length]
 
 ``` java
 
