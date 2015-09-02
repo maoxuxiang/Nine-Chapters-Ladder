@@ -260,15 +260,28 @@ public class Solution {
     public boolean wordBreak(String s, Set<String> wordDict) {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
-        for (int i = 1; i <= s.length(); i++) {
+        int maxLength = getMaxLength(wordDict);
+        for (int i = 1; i < s.length() + 1; i++) {
             for (int j = 0; j < i; j++) {
-                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+                if (i - j > maxLength) {
+                    continue;
+                }
+                String sub = s.substring(j, i);
+                if (dp[j] && wordDict.contains(sub)) {
                     dp[i] = true;
                     break;
                 }
             }
         }
         return dp[s.length()];
+    }
+
+    private int getMaxLength(Set<String> wordDict) {
+        int maxLength = 0;
+        for (String word : wordDict) {
+            maxLength = Math.max(maxLength, word.length());
+        }
+        return maxLength;
     }
 }
 ```
