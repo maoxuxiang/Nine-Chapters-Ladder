@@ -250,13 +250,27 @@ public class Solution {
 https://leetcode.com/problems/word-break/
 
 思路：  
-state: possible[i]表示字符串S的[0,i]子串可以被segmented by dict, 0 < i < S.length  
-function: possible[i] = possible[k] && dict.contains(s.substr(k+1, i-k)), 0 < k < i  
-initialize: possible[0] = true  
-answer: possible[S.length]
+state: dp[i]表示字符串s的[0,i]子串可以被segmented by dict, 0 < i < s.length()+1  
+function: dp[i] = dp[j] && dict.contains(s.substring(j, i)), 0 < j < i  
+initialize: dp[0] = true  
+answer: dp[s.length()]
 
 ``` java
-
+public class Solution {
+    public boolean wordBreak(String s, Set<String> wordDict) {
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[s.length()];
+    }
+}
 ```
 
 <hr />
