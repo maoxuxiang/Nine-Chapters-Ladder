@@ -161,15 +161,13 @@ public class Solution {
 ## Binary Tree Maximum Path Sum
 https://leetcode.com/problems/binary-tree-maximum-path-sum/
 
-思路：
-
+思路：  
 结点有可能是负值，所以一个以`root`为根的树的最大路径和`maxPathSum(root)`有以下四种情况
 
 1. `root.val`
 2. `root.val` + `getMax(left)`
 3. `root.val` + `getMax(right)`
-4. `root.val` + `getMax(left)` + `getMax(right)`（跨越左右子树）
-
+4. `root.val` + `getMax(left)` + `getMax(right)`（跨越左右子树）  
 其中，`getMax(root)`是当前结点不包含第四种情况的最大路径和
 
 ``` java
