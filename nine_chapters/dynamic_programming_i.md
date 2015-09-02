@@ -133,14 +133,10 @@ public class Solution {
 ## Minimum Path Sum
 https://leetcode.com/problems/minimum-path-sum/
 
-思路：
-
-state: f[i][j]从起点到i,j的最小路径和
-
-function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
-
-initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]
-
+思路：  
+state: f[i][j]从起点到i,j的最小路径和  
+function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]  
+initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]  
 answer: f[m-1][n-1]
 
 ``` java
