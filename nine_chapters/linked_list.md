@@ -92,8 +92,7 @@ https://leetcode.com/problems/partition-list/
 ```
 
 <hr />
-## 
-Reverse Linked List II
+## Reverse Linked List II
 
 思路：  
 
