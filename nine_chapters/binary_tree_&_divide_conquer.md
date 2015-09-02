@@ -19,8 +19,7 @@ optional
 ## Maximum Depth of Binary Tree
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-思路：
-
+思路：  
 左右子树求取最大值，然后+1
 
 ``` java
@@ -55,19 +54,15 @@ public class Solution {
 ## Binary Tree Preorder Traversal
 https://leetcode.com/problems/binary-tree-preorder-traversal/
 
-思路：
+思路：  
+1. 递归  
+先序遍历：根左右  
 
-1. 递归
+2. 非递归  
+利用栈，先序遍历：先访问根结点，入栈时先入右结点，再入左结点  
 
-    先序遍历：根左右
-
-2. 非递归
-
-    利用栈，先序遍历：先访问根结点，入栈时先入右结点，再入左结点
-
-3. 分治
-
-    自底向上
+3. 分治  
+自底向上
 
 ``` java
 public class Solution {
@@ -136,12 +131,9 @@ public class Solution {
 ## Validate Binary Search Tree
 https://leetcode.com/problems/validate-binary-search-tree/
 
-思路：
-
-对于每一个子树，限制它的最大，最小值，如果超过则返回false
-
-对于根节点，最大最小都不限制
-
+思路：  
+对于每一个子树，限制它的最大，最小值，如果超过则返回false  
+对于根节点，最大最小都不限制  
 每一层节点，左子树最大值小于根，右子树最小值大于根
 
 ``` java
