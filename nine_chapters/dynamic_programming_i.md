@@ -209,8 +209,32 @@ https://leetcode.com/problems/jump-game/
 
 思路：
 
-``` java
+1. DP
+2. Greedy
 
+维护right，表示从起始点能跳到的右边最远的点
+
+从左向右扫描，当前点i能跳到最远的点curRight = nums[i] + i
+
+right = max(right, curRight);
+
+right >= nums.length - 1表示right可跳到终点，返回true
+
+若i > right，表示从起始点跳不到i，则也跳不到终点
+
+``` java
+public class Solution {
+    public boolean canJump(int[] nums) {
+        int right = 0;
+        for (int i = 0; i <= right && i < nums.length; i++) {
+            right = Math.max(right, nums[i] + i);
+            if (right >= nums.length - 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 <hr />
