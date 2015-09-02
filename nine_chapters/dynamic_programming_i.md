@@ -172,14 +172,10 @@ public class Solution {
 ## Triangle
 https://leetcode.com/problems/triangle/
 
-思路：
-
-state: 自底向上，f[i][j]表示从i,j到底层的最短路径和
-
-function: f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j] 
-
-initialize: f[n-1][j] = triangle[i-1][j]
-
+思路：  
+state: 自底向上，f[i][j]表示从i,j到底层的最短路径和  
+function: f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j]  
+initialize: f[n-1][j] = triangle[i-1][j]  
 answer: f[0][0]
 
 ``` java
@@ -207,19 +203,13 @@ public class Solution {
 ## Jump Game
 https://leetcode.com/problems/jump-game/
 
-思路：
-
+思路：  
 1. DP
-2. Greedy
-
-维护right，表示从起始点能跳到的右边最远的点
-
-从左向右扫描，当前点i能跳到最远的点curRight = nums[i] + i
-
-right = max(right, curRight);
-
-right >= nums.length - 1表示right可跳到终点，返回true
-
+2. Greedy  
+维护right，表示从起始点能跳到的右边最远的点  
+从左向右扫描，当前点i能跳到最远的点curRight = nums[i] + i  
+right = max(right, curRight);  
+right >= nums.length - 1表示right可跳到终点，返回true  
 若i > right，表示从起始点跳不到i，则也跳不到终点
 
 ``` java
@@ -242,6 +232,14 @@ public class Solution {
 https://leetcode.com/problems/jump-game-ii/
 
 思路：
+
+state: f[i][j]从起点到i,j的最小路径和
+
+function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]
+
+initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]
+
+answer: f[m-1][n-1]
 
 ``` java
 
