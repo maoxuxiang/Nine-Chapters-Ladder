@@ -8,7 +8,7 @@
         <title>strStr &amp; Coding Style | 九章算法阶梯训练（Nine Chapters / Ladder）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.2.0">
+        <meta name="generator" content="GitBook 2.3.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.1" data-basepath=".." data-revision="Thu Sep 03 2015 17:36:40 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="Thu Sep 03 2015 19:39:23 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -403,8 +403,7 @@
 <p><hr></p>
 <h2 id="subsets">Subsets</h2>
 <p><a href="https://leetcode.com/problems/subsets/" target="_blank">https://leetcode.com/problems/subsets/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x9012;&#x5F52;&#x6784;&#x9020;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x9012;&#x5F52;&#x6784;&#x9020;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; subsets(<span class="hljs-keyword">int</span>[] nums) {
         List&lt;List&lt;Integer&gt;&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
@@ -452,8 +451,7 @@
 <p><hr></p>
 <h2 id="permutations">Permutations</h2>
 <p><a href="https://leetcode.com/problems/permutations/" target="_blank">https://leetcode.com/problems/permutations/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p><code>visited[]</code>&#x8BB0;&#x5F55;&#x8BE5;&#x4F4D;&#x7F6E;&#x662F;&#x5426;&#x8BBF;&#x95EE;&#x8FC7;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br><code>visited[]</code>&#x8BB0;&#x5F55;&#x8BE5;&#x4F4D;&#x7F6E;&#x662F;&#x5426;&#x8BBF;&#x95EE;&#x8FC7;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permute(<span class="hljs-keyword">int</span>[] nums) {
         List&lt;List&lt;Integer&gt;&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
@@ -491,8 +489,7 @@
 <p><hr></p>
 <h2 id="permutations-ii">Permutations II</h2>
 <p><a href="https://leetcode.com/problems/permutations-ii/" target="_blank">https://leetcode.com/problems/permutations-ii/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x6CE8;&#x610F;&#x5FAA;&#x73AF;&#x8DF3;&#x8FC7;&#x6761;&#x4EF6;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x6CE8;&#x610F;&#x5FAA;&#x73AF;&#x8DF3;&#x8FC7;&#x6761;&#x4EF6;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permuteUnique(<span class="hljs-keyword">int</span>[] nums) {
         List&lt;List&lt;Integer&gt;&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
@@ -527,25 +524,10 @@
 <p><hr></p>
 <h2 id="permutation-sequence">Permutation Sequence</h2>
 <p><a href="https://leetcode.com/problems/permutation-sequence/" target="_blank">https://leetcode.com/problems/permutation-sequence/</a></p>
-<p>&#x601D;&#x8DEF;&#x4E00;&#xFF1A;</p>
-<p>&#x9012;&#x5F52;&#x6784;&#x9020;&#x6240;&#x6709;&#x6392;&#x5217;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;k&#x4E2A;</p>
-<p>&#x601D;&#x8DEF;&#x4E8C;&#xFF1A;</p>
-<p>&#x627E;&#x6570;&#x5B66;&#x89C4;&#x5F8B;</p>
-<p>&#x5047;&#x8BBE;&#x6709;<script type="math/tex; ">n</script>&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x662F;<script type="math/tex; ">a_1a_2\ldots a_n</script></p>
-<p>&#x5BF9;&#x4E8E;<script type="math/tex; ">a_1</script>&#x5F00;&#x5934;&#x7684;&#x6392;&#x5217;&#xFF0C;<script type="math/tex; ">a_2...a_n</script>&#x5171;<script type="math/tex; ">n-1</script>&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6709;<script type="math/tex; ">(n-1)!</script>&#x79CD;&#x6392;&#x5217;</p>
-<p>&#x4EE4;<script type="math/tex; ">i = k / (n-1)!</script>&#xFF0C;&#x8868;&#x793A;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x5728;&#x7B2C;<script type="math/tex; ">i</script>&#x7EC4;&#xFF0C;<script type="math/tex; ">a_1 = k / (n-1)!</script></p>
-<p>&#x4EE4;<script type="math/tex; ">k' = k \% (n-1)!</script>&#xFF0C;&#x8868;&#x793A;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x5728;&#x7B2C;<script type="math/tex; ">i</script>&#x7EC4;&#x7684;<script type="math/tex; ">k'</script>&#x4F4D;&#x7F6E;</p>
-<p>&#x5219;&#x6709;&#xFF1A;</p>
+<p>&#x601D;&#x8DEF;&#x4E00;&#xFF1A;<br>&#x9012;&#x5F52;&#x6784;&#x9020;&#x6240;&#x6709;&#x6392;&#x5217;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;k&#x4E2A;</p>
+<p>&#x601D;&#x8DEF;&#x4E8C;&#xFF1A;<br>&#x627E;&#x6570;&#x5B66;&#x89C4;&#x5F8B;<br>&#x5047;&#x8BBE;&#x6709;<script type="math/tex; ">n</script>&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x662F;<script type="math/tex; ">a_1a_2\ldots a_n</script><br>&#x5BF9;&#x4E8E;<script type="math/tex; ">a_1</script>&#x5F00;&#x5934;&#x7684;&#x6392;&#x5217;&#xFF0C;<script type="math/tex; ">a_2...a_n</script>&#x5171;<script type="math/tex; ">n-1</script>&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6709;<script type="math/tex; ">(n-1)!</script>&#x79CD;&#x6392;&#x5217;<br>&#x4EE4;<script type="math/tex; ">i = k / (n-1)!</script>&#xFF0C;&#x8868;&#x793A;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x5728;&#x7B2C;<script type="math/tex; ">i</script>&#x7EC4;&#xFF0C;<script type="math/tex; ">a_1 = k / (n-1)!</script><br>&#x4EE4;<script type="math/tex; ">k' = k \% (n-1)!</script>&#xFF0C;&#x8868;&#x793A;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;permutation&#x5728;&#x7B2C;<script type="math/tex; ">i</script>&#x7EC4;&#x7684;<script type="math/tex; ">k'</script>&#x4F4D;&#x7F6E;<br>&#x5219;&#x6709;&#xFF1A;  </p>
 <blockquote>
-<p><script type="math/tex; ">k_1 = k</script></p>
-<p><script type="math/tex; ">a_1 = k_1 / (n-1)!</script></p>
-<p><script type="math/tex; ">k_2 = k_1 \% (n-1)!</script></p>
-<p><script type="math/tex; ">a_2 = k_2 / (n-2)!</script></p>
-<p><script type="math/tex; ">\ldots</script></p>
-<p><script type="math/tex; ">k_{n-1} = k_{n-2} \% 2!</script></p>
-<p><script type="math/tex; ">a_{n-1} = k_{n-1} / 1!</script></p>
-<p><script type="math/tex; ">k_{n} = k_{n-1} \% 1!</script></p>
-<p><script type="math/tex; ">a_n = k_n / 0!</script></p>
+<p><script type="math/tex; ">k_1 = k</script><br><script type="math/tex; ">a_1 = k_1 / (n-1)!</script><br><script type="math/tex; ">k_2 = k_1 \% (n-1)!</script><br><script type="math/tex; ">a_2 = k_2 / (n-2)!</script><br><script type="math/tex; ">\ldots</script><br><script type="math/tex; ">k_{n-1} = k_{n-2} \% 2!</script><br><script type="math/tex; ">a_{n-1} = k_{n-1} / 1!</script><br><script type="math/tex; ">k_{n} = k_{n-1} \% 1!</script><br><script type="math/tex; ">a_n = k_n / 0!</script></p>
 </blockquote>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPermutation</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> k)</span> </span>{

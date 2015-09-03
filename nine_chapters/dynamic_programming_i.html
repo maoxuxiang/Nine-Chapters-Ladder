@@ -8,7 +8,7 @@
         <title>Dynamic Programming I | 九章算法阶梯训练（Nine Chapters / Ladder）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.2.0">
+        <meta name="generator" content="GitBook 2.3.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.4" data-basepath=".." data-revision="Thu Sep 03 2015 17:36:40 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.4" data-basepath=".." data-revision="Thu Sep 03 2015 19:39:23 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -368,6 +368,223 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="dynamic-programming-i">Dynamic Programming I</h1>
+<ul>
+<li><a href="#unique-paths">Unique Paths</a></li>
+<li><a href="#unique-paths-ii">Unique Paths II</a></li>
+<li><a href="#climbing-stairs">Climbing Stairs</a></li>
+<li><a href="#minimum-path-sum">Minimum Path Sum</a></li>
+<li><a href="#triangle">Triangle</a></li>
+<li><a href="#jump-game">Jump Game</a></li>
+<li><a href="#jump-game-ii">Jump Game II</a></li>
+<li><a href="#word-break">Word Break</a></li>
+<li><a href="#palindrome-partitioning-ii">Palindrome Partitioning II</a></li>
+<li><a href="#longest-increasing-subsequence">Longest Increasing Subsequence</a></li>
+</ul>
+<p><hr></p>
+<h2 id="unique-paths">Unique Paths</h2>
+<p><a href="https://leetcode.com/problems/unique-paths/" target="_blank">https://leetcode.com/problems/unique-paths/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: f[i][j]&#x4ECE;&#x8D77;&#x70B9;&#x5230;i,j&#x7684;&#x8DEF;&#x5F84;&#x6570;<br>function: f[i][j] = f[i-1][j] + f[i][j-1]<br>initialize: f[i][0] = 1, f[0][j] = 1<br>answer: f[m-1][n-1]</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">uniquePaths</span><span class="hljs-params">(<span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span> n)</span> </span>{
+        <span class="hljs-keyword">int</span>[][] array = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m][n];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            array[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+            array[<span class="hljs-number">0</span>][j] = <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {
+                array[i][j] = array[i - <span class="hljs-number">1</span>][j] + array[i][j - <span class="hljs-number">1</span>];
+            }
+        }
+        <span class="hljs-keyword">return</span> array[m - <span class="hljs-number">1</span>][n - <span class="hljs-number">1</span>];
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="unique-paths-ii">Unique Paths II</h2>
+<p><a href="https://leetcode.com/problems/unique-paths-ii/" target="_blank">https://leetcode.com/problems/unique-paths-ii/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: f[i][j]&#x4ECE;&#x8D77;&#x70B9;&#x5230;i,j&#x7684;&#x8DEF;&#x5F84;&#x6570;<br>function: f[i][j] = f[i-1][j] + f[i][j-1]<br>initialize: f[i][0] = 1, f[0][j] = 1<br>answer: f[m-1][n-1]<br>obstacleGrid[i][j] = 1&#x8868;&#x793A;&#x8DEF;&#x5F84;&#x4E0D;&#x901A;&#xFF0C;&#x5219;grid[i][j] = 0</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">uniquePathsWithObstacles</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] obstacleGrid)</span> </span>{
+        <span class="hljs-keyword">int</span> m = obstacleGrid.length;
+        <span class="hljs-keyword">int</span> n = obstacleGrid[<span class="hljs-number">0</span>].length;
+        <span class="hljs-keyword">int</span>[][] array = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m][n];
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">if</span> (obstacleGrid[i][<span class="hljs-number">0</span>] == <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">break</span>;
+            }
+            array[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+            <span class="hljs-keyword">if</span> (obstacleGrid[<span class="hljs-number">0</span>][j] == <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">break</span>;
+            }
+            array[<span class="hljs-number">0</span>][j] = <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {
+                <span class="hljs-keyword">if</span> (obstacleGrid[i][j] == <span class="hljs-number">1</span>) {
+                    array[i][j] = <span class="hljs-number">0</span>;
+                } <span class="hljs-keyword">else</span> {
+                    array[i][j] = array[i - <span class="hljs-number">1</span>][j] + array[i][j - <span class="hljs-number">1</span>];
+                }
+            }
+        }
+
+        <span class="hljs-keyword">return</span> array[m - <span class="hljs-number">1</span>][n - <span class="hljs-number">1</span>];
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="climbing-stairs">Climbing Stairs</h2>
+<p><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank">https://leetcode.com/problems/climbing-stairs/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: f[n]&#x4ECE;&#x8D77;&#x70B9;&#x5230;n&#x7684;&#x65B9;&#x5F0F;&#x6570;&#x91CF;<br>function: f[n] = f[n-1] + f[n-2]<br>initialize: f[0] = 1, f[1] = 1, f[2] = f[0] + f[1] = 2<br>answer: f[n]</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>{
+        <span class="hljs-keyword">int</span> first = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> second = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> second;
+        }
+
+        <span class="hljs-keyword">int</span> result = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) {
+            result = first + second;
+            first = second;
+            second = result;
+        }
+        <span class="hljs-keyword">return</span> result;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="minimum-path-sum">Minimum Path Sum</h2>
+<p><a href="https://leetcode.com/problems/minimum-path-sum/" target="_blank">https://leetcode.com/problems/minimum-path-sum/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: f[i][j]&#x4ECE;&#x8D77;&#x70B9;&#x5230;i,j&#x7684;&#x6700;&#x5C0F;&#x8DEF;&#x5F84;&#x548C;<br>function: f[i][j] = min(f[i-1][j], f[i][j-1]) + grid[i][j]<br>initialize: f[0][0] = grid[0][0], f[i][0] = f[i-1][0] + grid[i][0], f[0][j] = f[0][j-1] + grid[0][j]<br>answer: f[m-1][n-1]</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">minPathSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] grid)</span> </span>{
+        <span class="hljs-keyword">int</span> m = grid.length;
+        <span class="hljs-keyword">int</span> n = grid[<span class="hljs-number">0</span>].length;
+        <span class="hljs-keyword">int</span>[][] answer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[m][n];
+
+        answer[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = grid[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m; i++) {
+            answer[i][<span class="hljs-number">0</span>] = answer[i - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + grid[i][<span class="hljs-number">0</span>];
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {
+            answer[<span class="hljs-number">0</span>][j] = answer[<span class="hljs-number">0</span>][j - <span class="hljs-number">1</span>] + grid[<span class="hljs-number">0</span>][j];
+        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {
+                answer[i][j] = Math.min(answer[i - <span class="hljs-number">1</span>][j], answer[i][j - <span class="hljs-number">1</span>]) + grid[i][j];
+            }
+        }
+
+        <span class="hljs-keyword">return</span> answer[m - <span class="hljs-number">1</span>][n - <span class="hljs-number">1</span>];
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="triangle">Triangle</h2>
+<p><a href="https://leetcode.com/problems/triangle/" target="_blank">https://leetcode.com/problems/triangle/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: &#x81EA;&#x5E95;&#x5411;&#x4E0A;&#xFF0C;f[i][j]&#x8868;&#x793A;&#x4ECE;i,j&#x5230;&#x5E95;&#x5C42;&#x7684;&#x6700;&#x77ED;&#x8DEF;&#x5F84;&#x548C;<br>function: f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j]<br>initialize: f[n-1][j] = triangle[i-1][j]<br>answer: f[0][0]</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">minimumTotal</span><span class="hljs-params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>{
+        <span class="hljs-keyword">int</span> n = triangle.size();
+        <span class="hljs-keyword">int</span>[] answer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n];
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+            answer[j] = triangle.get(n - <span class="hljs-number">1</span>).get(j);
+        }
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n - <span class="hljs-number">2</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j++) {  <span class="hljs-comment">// &#x7B2C;i&#x5C42;&#x6709;i+1&#x4E2A;&#x7ED3;&#x70B9;&#xFF08;0&#x5C42;-1&#x7ED3;&#x70B9;&#x3001;1&#x5C42;-2&#x7ED3;&#x70B9;...&#xFF09;</span>
+                answer[j] = Math.min(answer[j], answer[j + <span class="hljs-number">1</span>]) + triangle.get(i).get(j);
+            }
+        }
+
+        <span class="hljs-keyword">return</span> answer[<span class="hljs-number">0</span>];
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="jump-game">Jump Game</h2>
+<p><a href="https://leetcode.com/problems/jump-game/" target="_blank">https://leetcode.com/problems/jump-game/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;  </p>
+<ol>
+<li>DP</li>
+<li>Greedy<br>&#x7EF4;&#x62A4;right&#xFF0C;&#x8868;&#x793A;&#x4ECE;&#x8D77;&#x59CB;&#x70B9;&#x80FD;&#x8DF3;&#x5230;&#x7684;&#x53F3;&#x8FB9;&#x6700;&#x8FDC;&#x7684;&#x70B9;<br>&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x626B;&#x63CF;&#xFF0C;&#x5F53;&#x524D;&#x70B9;i&#x80FD;&#x8DF3;&#x5230;&#x6700;&#x8FDC;&#x7684;&#x70B9;curRight = nums[i] + i<br>right = max(right, curRight);<br>right &gt;= nums.length - 1&#x8868;&#x793A;right&#x53EF;&#x8DF3;&#x5230;&#x7EC8;&#x70B9;&#xFF0C;&#x8FD4;&#x56DE;true<br>&#x82E5;i &gt; right&#xFF0C;&#x8868;&#x793A;&#x4ECE;&#x8D77;&#x59CB;&#x70B9;&#x8DF3;&#x4E0D;&#x5230;i&#xFF0C;&#x5219;&#x4E5F;&#x8DF3;&#x4E0D;&#x5230;&#x7EC8;&#x70B9;</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">int</span> right = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= right &amp;&amp; i &lt; nums.length; i++) {
+            right = Math.max(right, nums[i] + i);
+            <span class="hljs-keyword">if</span> (right &gt;= nums.length - <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="jump-game-ii">Jump Game II</h2>
+<p><a href="https://leetcode.com/problems/jump-game-ii/" target="_blank">https://leetcode.com/problems/jump-game-ii/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;  </p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="word-break">Word Break</h2>
+<p><a href="https://leetcode.com/problems/word-break/" target="_blank">https://leetcode.com/problems/word-break/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: dp[i]&#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32;s&#x7684;[0,i]&#x5B50;&#x4E32;&#x53EF;&#x4EE5;&#x88AB;segmented by dict, 0 &lt; i &lt; s.length()+1<br>function: dp[i] = dp[j] &amp;&amp; dict.contains(s.substring(j, i)), 0 &lt; j &lt; i<br>initialize: dp[0] = true<br>answer: dp[s.length()]</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">wordBreak</span><span class="hljs-params">(String s, Set&lt;String&gt; wordDict)</span> </span>{
+        <span class="hljs-keyword">boolean</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[s.length() + <span class="hljs-number">1</span>];
+        dp[<span class="hljs-number">0</span>] = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">int</span> maxLength = getMaxLength(wordDict);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; s.length() + <span class="hljs-number">1</span>; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++) {
+                <span class="hljs-keyword">if</span> (i - j &gt; maxLength) {
+                    <span class="hljs-keyword">continue</span>;
+                }
+                String sub = s.substring(j, i);
+                <span class="hljs-keyword">if</span> (dp[j] &amp;&amp; wordDict.contains(sub)) {
+                    dp[i] = <span class="hljs-keyword">true</span>;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+        <span class="hljs-keyword">return</span> dp[s.length()];
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getMaxLength</span><span class="hljs-params">(Set&lt;String&gt; wordDict)</span> </span>{
+        <span class="hljs-keyword">int</span> maxLength = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (String word : wordDict) {
+            maxLength = Math.max(maxLength, word.length());
+        }
+        <span class="hljs-keyword">return</span> maxLength;
+    }
+}
+</code></pre>
+<p><hr></p>
+<h2 id="palindrome-partitioning-ii">Palindrome Partitioning II</h2>
+<p><a href="https://leetcode.com/problems/palindrome-partitioning-ii/" target="_blank">https://leetcode.com/problems/palindrome-partitioning-ii/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;</p>
+<pre><code class="lang-java">
+
+</code></pre>
+<p><hr></p>
+<h2 id="longest-increasing-subsequence">Longest Increasing Subsequence</h2>
+<p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/" target="_blank">http://www.lintcode.com/en/problem/longest-increasing-subsequence/</a></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>state: dp[i]&#x8868;&#x793A;&#x4EE5;nums[i]&#x7ED3;&#x5C3E;&#x7684;LIS&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;, 0 &lt; i &lt; nums.length<br>function:<br>initialize:<br>answer: </p>
+<pre><code class="lang-java">
+
+</code></pre>
 
                     
                     </section>

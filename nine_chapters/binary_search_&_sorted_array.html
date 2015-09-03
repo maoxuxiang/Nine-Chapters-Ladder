@@ -8,7 +8,7 @@
         <title>Binary Search &amp; Sorted Array | 九章算法阶梯训练（Nine Chapters / Ladder）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.2.0">
+        <meta name="generator" content="GitBook 2.3.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.2" data-basepath=".." data-revision="Thu Sep 03 2015 17:36:40 GMT+0800 (中国标准时间)">
+    <div class="book" data-level="1.2" data-basepath=".." data-revision="Thu Sep 03 2015 19:39:23 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -400,8 +400,7 @@
 <p><hr></p>
 <h2 id="search-insert-position">Search Insert Position</h2>
 <p><a href="https://leetcode.com/problems/search-insert-position/" target="_blank">https://leetcode.com/problems/search-insert-position/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF0C;&#x6CE8;&#x610F;&#x8FB9;&#x754C;&#x6761;&#x4EF6;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF0C;&#x6CE8;&#x610F;&#x8FB9;&#x754C;&#x6761;&#x4EF6;  </p>
 <ol>
 <li>&#x5FAA;&#x73AF;&#x8DF3;&#x51FA;&#x6761;&#x4EF6;&#xFF1A;<code>low &lt;= high</code></li>
 <li>&#x9000;&#x51FA;&#x6761;&#x4EF6;&#xFF1A;<code>mid / mid + 1</code></li>
@@ -496,12 +495,7 @@
 <p><hr></p>
 <h2 id="find-peak-element">Find Peak Element</h2>
 <p><a href="https://leetcode.com/problems/find-peak-element/" target="_blank">https://leetcode.com/problems/find-peak-element/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x4E8C;&#x5206;&#x67E5;&#x627E;</p>
-<p>&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x6761;&#x4EF6;&#xFF1A;<code>low == high</code>
-&#x59CB;&#x7EC8;&#x62FF;<code>mid</code>&#x548C;<code>mid+1</code>&#x6BD4;&#x8F83;&#xFF1A;</p>
-<p>&#x82E5;&#x5347;&#x5E8F;(<code>nums[mid] &lt; nums[mid + 1]</code>)&#xFF0C;&#x5219;&#x5CF0;&#x503C;&#x5728;<code>mid+1</code>&#x53F3;&#x4FA7;&#xFF0C;<code>low = mid + 1</code></p>
-<p>&#x82E5;&#x964D;&#x5E8F;(<code>nums[mid] &gt;= nums[mid + 1]</code>), &#x5219;&#x5CF0;&#x503C;&#x5728;mid&#x5DE6;&#x4FA7;&#xFF0C;<code>high = mid</code></p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x4E8C;&#x5206;&#x67E5;&#x627E;<br>&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x6761;&#x4EF6;&#xFF1A;<code>low == high</code><br>&#x59CB;&#x7EC8;&#x62FF;<code>mid</code>&#x548C;<code>mid+1</code>&#x6BD4;&#x8F83;&#xFF1A;<br>&#x82E5;&#x5347;&#x5E8F;(<code>nums[mid] &lt; nums[mid + 1]</code>)&#xFF0C;&#x5219;&#x5CF0;&#x503C;&#x5728;<code>mid+1</code>&#x53F3;&#x4FA7;&#xFF0C;<code>low = mid + 1</code><br>&#x82E5;&#x964D;&#x5E8F;(<code>nums[mid] &gt;= nums[mid + 1]</code>), &#x5219;&#x5CF0;&#x503C;&#x5728;mid&#x5DE6;&#x4FA7;&#xFF0C;<code>high = mid</code></p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findPeakElement</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
         <span class="hljs-keyword">int</span> low = <span class="hljs-number">0</span>, high = nums.length - <span class="hljs-number">1</span>, mid;
@@ -555,8 +549,7 @@
 <p><hr></p>
 <h2 id="search-in-rotated-sorted-array">Search in Rotated Sorted Array</h2>
 <p><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">https://leetcode.com/problems/search-in-rotated-sorted-array/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x53C2;&#x8003;<a href="http://fisherlei.blogspot.com/2013/01/leetcode-search-in-rotated-sorted-array.html" target="_blank">&#x6C34;&#x4E2D;&#x7684;&#x9C7C;</a>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x53C2;&#x8003;<a href="http://fisherlei.blogspot.com/2013/01/leetcode-search-in-rotated-sorted-array.html" target="_blank">&#x6C34;&#x4E2D;&#x7684;&#x9C7C;</a>
 <img src="http://3.bp.blogspot.com/-ovV6zYeEdZg/U_ke6coEoAI/AAAAAAAAIc4/lmb1A9FsjgQ/s1600/Picture123.png" alt=""></p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target)</span> </span>{
@@ -587,10 +580,7 @@
 <p><hr></p>
 <h2 id="search-for-a-range">Search for a Range</h2>
 <p><a href="https://leetcode.com/problems/search-for-a-range/" target="_blank">https://leetcode.com/problems/search-for-a-range/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x4F4D;&#x7F6E;</p>
-<p>&#x5411;&#x5DE6;&#x8D70;&#x627E;&#x5230;&#x6700;&#x5DE6;</p>
-<p>&#x5411;&#x53F3;&#x8D70;&#x627E;&#x5230;&#x6700;&#x53F3;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x4F4D;&#x7F6E;<br>&#x5411;&#x5DE6;&#x8D70;&#x627E;&#x5230;&#x6700;&#x5DE6;<br>&#x5411;&#x53F3;&#x8D70;&#x627E;&#x5230;&#x6700;&#x53F3;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] searchRange(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) {
         <span class="hljs-keyword">int</span>[] result = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
@@ -632,22 +622,12 @@
 <p><hr></p>
 <h2 id="median-of-two-sorted-arrays">Median of Two Sorted Arrays</h2>
 <p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank">https://leetcode.com/problems/median-of-two-sorted-arrays/</a></p>
-<p>&#x601D;&#x8DEF;&#xFF1A;</p>
-<p>&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x4F4D;&#x6570;<script type="math/tex; ">k = (m + n) / 2</script></p>
-<p>&#x5219;&#x53EF;&#x5C06;&#x9898;&#x76EE;&#x8F6C;&#x5316;&#x4E3A;<strong>&#x6C42;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x7B2C;<script type="math/tex; ">k</script>&#x5927;&#x7684;&#x6570;&#xFF08;Kth element in 2 sorted array&#xFF09;</strong></p>
-<p>&#x6BD4;&#x8F83;<script type="math/tex; ">A_{k/2}</script>&#x4E0E;<script type="math/tex; ">B_{k/2}</script>&#xFF08;&#x82E5;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x5C0F;&#x4E8E;<script type="math/tex; ">k/2</script>&#xFF0C;&#x5219;&#x8BB0;&#x4E3A;&#x65E0;&#x7A77;&#x5927;&#xFF09;&#xFF1A;</p>
-<p>&#x82E5;<script type="math/tex; ">A_{k/2} < B_{k/2}</script>&#xFF0C;&#x8868;&#x793A;<script type="math/tex; ">A_0,\ldots,A_{k/2}</script>&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x5728;<script type="math/tex; ">A</script>&#x548C;<script type="math/tex; ">B</script>&#x5408;&#x5E76;&#x4E4B;&#x540E;&#x7684;&#x524D;<script type="math/tex; ">k</script>&#x5C0F;&#x7684;&#x5143;&#x7D20;&#x4E2D;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;&#x6570;&#x4E0D;&#x5728;<script type="math/tex; ">A_0,\ldots,A_{k/2}</script>&#x4E2D;&#xFF0C;&#x79FB;&#x52A8;&#x6307;&#x9488;&#x6307;&#x5411;<script type="math/tex; ">A_{k+1}</script>&#xFF0C;&#x5728;<script type="math/tex; ">A_{k+1},\ldots,A_m</script>&#x548C;<script type="math/tex; ">B</script>&#x6570;&#x7EC4;&#x4E2D;<strong>&#x627E;&#x7B2C;<script type="math/tex; ">k-k/2</script>&#x5927;&#x7684;&#x6570;</strong>&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x5220;&#x9664;&#x4E86;<script type="math/tex; ">k/2</script>&#x4E2A;&#x5143;&#x7D20;&#xFF09;</p>
-<p>&#x5426;&#x5219;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;&#x6570;&#x4E0D;&#x5728;<script type="math/tex; ">B_0,\ldots,B_{k/2}</script>&#x4E2D;&#xFF0C;&#x79FB;&#x52A8;&#x6307;&#x9488;&#x6307;&#x5411;<script type="math/tex; ">B_{k+1}</script>&#xFF0C;&#x5728;<script type="math/tex; ">B_{k+1},\ldots,B_n</script>&#x548C;<script type="math/tex; ">A</script>&#x6570;&#x7EC4;&#x4E2D;<strong>&#x627E;&#x7B2C;<script type="math/tex; ">k-k/2</script>&#x5927;&#x7684;&#x6570;</strong>&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x5220;&#x9664;&#x4E86;<script type="math/tex; ">k/2</script>&#x4E2A;&#x5143;&#x7D20;&#xFF09;</p>
-<p>&#x9012;&#x5F52;&#x9000;&#x51FA;&#x6761;&#x4EF6;&#xFF1A;</p>
-<p>&#x9012;&#x5F52;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5728;A&#x4E2D;&#x67E5;&#x627E;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;<code>start1</code>&#x3001;&#x5728;B&#x4E2D;&#x67E5;&#x627E;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;<code>start2</code>&#x3001;<code>k</code></p>
-<p>&#x5219;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x7B2C;<code>k</code>&#x5927;&#x7684;&#x6570;&#x7684;&#x9000;&#x51FA;&#x6761;&#x4EF6;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;</p>
+<p>&#x601D;&#x8DEF;&#xFF1A;<br>&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x4F4D;&#x6570;<script type="math/tex; ">k = (m + n) / 2</script><br>&#x5219;&#x53EF;&#x5C06;&#x9898;&#x76EE;&#x8F6C;&#x5316;&#x4E3A;<strong>&#x6C42;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x7B2C;<script type="math/tex; ">k</script>&#x5927;&#x7684;&#x6570;&#xFF08;Kth element in 2 sorted array&#xFF09;</strong><br>&#x6BD4;&#x8F83;<script type="math/tex; ">A_{k/2}</script>&#x4E0E;<script type="math/tex; ">B_{k/2}</script>&#xFF08;&#x82E5;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#x5C0F;&#x4E8E;<script type="math/tex; ">k/2</script>&#xFF0C;&#x5219;&#x8BB0;&#x4E3A;&#x65E0;&#x7A77;&#x5927;&#xFF09;&#xFF1A;<br>&#x82E5;<script type="math/tex; ">A_{k/2} < B_{k/2}</script>&#xFF0C;&#x8868;&#x793A;<script type="math/tex; ">A_0,\ldots,A_{k/2}</script>&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x5728;<script type="math/tex; ">A</script>&#x548C;<script type="math/tex; ">B</script>&#x5408;&#x5E76;&#x4E4B;&#x540E;&#x7684;&#x524D;<script type="math/tex; ">k</script>&#x5C0F;&#x7684;&#x5143;&#x7D20;&#x4E2D;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;&#x6570;&#x4E0D;&#x5728;<script type="math/tex; ">A_0,\ldots,A_{k/2}</script>&#x4E2D;&#xFF0C;&#x79FB;&#x52A8;&#x6307;&#x9488;&#x6307;&#x5411;<script type="math/tex; ">A_{k+1}</script>&#xFF0C;&#x5728;<script type="math/tex; ">A_{k+1},\ldots,A_m</script>&#x548C;<script type="math/tex; ">B</script>&#x6570;&#x7EC4;&#x4E2D;<strong>&#x627E;&#x7B2C;<script type="math/tex; ">k-k/2</script>&#x5927;&#x7684;&#x6570;</strong>&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x5220;&#x9664;&#x4E86;<script type="math/tex; ">k/2</script>&#x4E2A;&#x5143;&#x7D20;&#xFF09;<br>&#x5426;&#x5219;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;<script type="math/tex; ">k</script>&#x4E2A;&#x6570;&#x4E0D;&#x5728;<script type="math/tex; ">B_0,\ldots,B_{k/2}</script>&#x4E2D;&#xFF0C;&#x79FB;&#x52A8;&#x6307;&#x9488;&#x6307;&#x5411;<script type="math/tex; ">B_{k+1}</script>&#xFF0C;&#x5728;<script type="math/tex; ">B_{k+1},\ldots,B_n</script>&#x548C;<script type="math/tex; ">A</script>&#x6570;&#x7EC4;&#x4E2D;<strong>&#x627E;&#x7B2C;<script type="math/tex; ">k-k/2</script>&#x5927;&#x7684;&#x6570;</strong>&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x5220;&#x9664;&#x4E86;<script type="math/tex; ">k/2</script>&#x4E2A;&#x5143;&#x7D20;&#xFF09;</p>
+<p>&#x9012;&#x5F52;&#x9000;&#x51FA;&#x6761;&#x4EF6;&#xFF1A;<br>&#x9012;&#x5F52;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5728;A&#x4E2D;&#x67E5;&#x627E;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;<code>start1</code>&#x3001;&#x5728;B&#x4E2D;&#x67E5;&#x627E;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;<code>start2</code>&#x3001;<code>k</code><br>&#x5219;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x4E2D;&#x627E;&#x7B2C;<code>k</code>&#x5927;&#x7684;&#x6570;&#x7684;&#x9000;&#x51FA;&#x6761;&#x4EF6;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;  </p>
 <ol>
-<li><code>start1 == m</code>
-&#x8FD4;&#x56DE;<code>B</code>&#x4E2D;&#x7B2C;<code>k-1</code>&#x5927;&#x7684;&#x6570;</li>
-<li><code>start2 == n</code>
-&#x8FD4;&#x56DE;<code>A</code>&#x4E2D;&#x7B2C;<code>k-1</code>&#x5927;&#x7684;&#x6570;</li>
-<li><code>k == 1</code>
-&#x8FD4;&#x56DE;<code>A</code>&#x3001;<code>B</code>&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;&#x8F83;&#x5C0F;&#x7684;&#x90A3;&#x4E2A;&#x6570;</li>
+<li><code>start1 == m</code><br>&#x8FD4;&#x56DE;<code>B</code>&#x4E2D;&#x7B2C;<code>k-1</code>&#x5927;&#x7684;&#x6570;</li>
+<li><code>start2 == n</code><br>&#x8FD4;&#x56DE;<code>A</code>&#x4E2D;&#x7B2C;<code>k-1</code>&#x5927;&#x7684;&#x6570;</li>
+<li><code>k == 1</code><br>&#x8FD4;&#x56DE;<code>A</code>&#x3001;<code>B</code>&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;&#x8F83;&#x5C0F;&#x7684;&#x90A3;&#x4E2A;&#x6570;</li>
 </ol>
 <pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">findMedianSortedArrays</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums1, <span class="hljs-keyword">int</span>[] nums2)</span> </span>{
